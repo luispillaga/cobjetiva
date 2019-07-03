@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Area, Specialty, Period, Course
+from .models import Area, Specialty, Period, Course, Inscription
 
 
 # Register your models here.
@@ -10,7 +10,7 @@ class AreaAdmin(admin.ModelAdmin):
 
 @admin.register(Specialty)
 class SpecialtyAdmin(admin.ModelAdmin):
-    list_display = ('degree',)
+    list_display = ('name',)
 
 
 @admin.register(Period)
@@ -21,3 +21,8 @@ class PeriodAdmin(admin.ModelAdmin):
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
     list_display = ('name',)
+
+
+@admin.register(Inscription)
+class InscriptionAdmin(admin.ModelAdmin):
+    pass

@@ -13,7 +13,7 @@ class CustomUserAdmin(UserAdmin):
     model = CustomUser
     add_fieldsets = UserAdmin.add_fieldsets + (
         (None, {
-            'fields': ('id_card', 'user_type'),
+            'fields': ('first_name', 'last_name', 'id_card', 'user_type'),
         }),
     )
 
