@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d96e0950-e403-41d2-b92b-20cb99f6aa6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/templates/core/area/area_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/templates/core/area/area_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/templates/core/inscription/inscription_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/training/fixtures/areas/areas.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cobjetiva/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/cobjetiva/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cobjetiva/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cobjetiva/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/specialty/specialty_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/specialty/specialty_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/specialty/specialty_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/specialty/specialty_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/training/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/migrations/0002_auto_20190703_1237.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/migrations/0003_course_state.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/migrations/0004_specialty_emission_date.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/migrations/0005_auto_20190703_1305.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/migrations/0006_auto_20190704_1205.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/training/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/0002_auto_20190703_1256.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/users/register_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/register_done.html" afterDir="false" />
-    </list>
+    <list default="true" id="d96e0950-e403-41d2-b92b-20cb99f6aa6e" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -258,7 +230,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562270502557" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562271018253" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -322,12 +294,12 @@
       <option name="presentableId" value="Default" />
       <updated>1562191128611</updated>
       <workItem from="1562191130090" duration="789000" />
-      <workItem from="1562207022352" duration="24776000" />
+      <workItem from="1562207022352" duration="25029000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25565000" />
+    <option name="totallyTimeSpent" value="25818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
