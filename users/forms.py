@@ -40,24 +40,3 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError('Las contraseñas no coinciden.')
         return cd['password2']
 
-
-class UserEditForm(forms.ModelForm):
-    class Meta:
-        model = get_user_model()
-        fields = ('first_name', 'last_name', 'email')
-        widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control form-control-alternative'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control form-control-alternative'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control form-control-alternative'}),
-        }
-
-
-# class CompanyEditForm(forms.ModelForm):
-#     class Meta:
-#         model = Professor
-#         fields = ('name', 'address')
-#         widgets = {
-#             'first_name': forms.TextInput(attrs={'class':'form-control form-control-alternative'}),
-#             'address': forms.TextInput(attrs={'class':'form-control form-control-alternative'}),
-#             'phone': forms.TextInput(attrs={'class':'form-control form-control-alternative'}),
-#         }

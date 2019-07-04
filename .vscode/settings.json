@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "/Users/lapillaga/miniconda3/envs/brio/bin/python",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
+}

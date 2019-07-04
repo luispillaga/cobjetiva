@@ -1,0 +1,113 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block header %}Hola {{ request.user.first_name }} {{ request.user.last_name }}{% endblock %}
+{% block subheader %}Bienvenido aqui puedes editar tu perfil.{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+                <span class="alert-inner--text"><strong>Correcto!</strong> {{ message|safe }}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="row">
+        <div class="col-xl-12 order-xl-1">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Perfil</h3>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a href="#" onclick="formSubmit();" class="btn btn-sm btn-primary">Guardar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form id="edit_form" action="." method="post" enctype="multipart/form-data">
+                        <h6 class="heading-small text-muted mb-4">Información personal</h6>
+                        {% csrf_token %}
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="id_first_name">Nombre</label>
+                                        {{ user_form.first_name }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="id_last_name">Apellidos</label>
+                                        {{ user_form.last_name }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="id_email">Email</label>
+                                        {{ user_form.email }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="id_card">Cédula</label>
+                                        {{ user_form.id_card }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="my-4" />
+                        <!-- Address -->
+                        <h6 class="heading-small text-muted mb-4">Datos adicionales</h6>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="birthday">Fecha Nacimiento</label>
+                                        {{ professor_form.birthday_date }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="address">Dirección</label>
+                                        {{ professor_form.address }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="phone">Teléfono</label>
+                                        {{ professor_form.phone }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="city">Ciudad</label>
+                                        {{ professor_form.city }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block javascript %}
+        <script type="text/javascript">
+            function formSubmit()
+            {
+                document.getElementById("edit_form").submit();
+            }
+        </script>
+
+    {% endblock %}
+{% endblock %}

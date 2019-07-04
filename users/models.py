@@ -20,7 +20,7 @@ class CustomUser(AbstractUser):
 
 class Professor(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, verbose_name="Usuario")
-    specialities = models.ManyToManyField(Specialty, verbose_name="Especialidades")
+    specialities = models.ManyToManyField(Specialty, verbose_name="Especialidades", related_name="professors")
     areas = models.ManyToManyField(Area, verbose_name="Areas de preferencia")
     phone = models.CharField(verbose_name="Teléfono", max_length=12)
     city = models.CharField(verbose_name="Ciudad", max_length=20)

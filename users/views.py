@@ -1,9 +1,10 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from users.forms import LoginForm, UserRegistrationForm, UserEditForm
+from users.forms import LoginForm, UserRegistrationForm
 from users.models import Professor
+from django.contrib import messages
 
 
 def user_login(request):
@@ -17,11 +18,15 @@ def user_login(request):
             if user is not None:
                 if user.professor.state:
                     login(request, user)
-                    return HttpResponse('Autenticado')
+                    if 'next' in request.POST:
+                        print(request.POST.get("next"))
+                        return redirect(request.POST.get("next"))
+                    return redirect('home')
                 else:
-                    return HttpResponse('Aún no esta habilitado para usar el sistema')
+                    message = 'Aún no se encuentra habilitado para iniciar sesión.'
+                    return render(request, 'users/invalid_login.html', {'message': message})
             else:
-                return HttpResponse('Invalid login')
+                messages.error(request, 'Credenciales incorrectos.')
     else:
         form = LoginForm()
     return render(request, 'users/login.html', {'form': form})
@@ -44,23 +49,3 @@ def register(request):
     return render(request, 'users/register.html',
                   {'user_form': user_form})
 
-
-@login_required
-def edit(request):
-    # if request.method == 'POST':
-    #     user_form = UserEditForm(instance=request.user,
-    #                              data=request.POST)
-    #     company_form = CompanyEditForm(
-    #         instance=request.user.company,
-    #         data=request.POST,
-    #         files=request.FILES
-    #     )
-    #     if user_form.is_valid() and company_form.is_valid():
-    #         user_form.save()
-    #         company_form.save()
-    # else:
-    #     user_form = UserEditForm(instance=request.user)
-    #     company_form = CompanyEditForm(
-    #         instance=request.user.company
-    #     )
-    return render(request, 'account/edit.html')

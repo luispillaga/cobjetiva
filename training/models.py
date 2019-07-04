@@ -22,7 +22,7 @@ class Area(models.Model):
     description = models.TextField(verbose_name="Descripción")
     created_at = models.DateTimeField(verbose_name="Fecha de creación", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="Fecha de actualiación", auto_now=True)
-
+    
     class Meta:
         verbose_name = "Área"
         verbose_name_plural = "Areas"
@@ -30,6 +30,16 @@ class Area(models.Model):
     def __str__(self):
         return self.name
 
+
+class Degree(models.Model):
+    name = models.CharField(verbose_name="Nombre especialidad", max_length=100)
+
+    class Meta:
+        verbose_name = "Título"
+        verbose_name_plural = "Titulos"
+
+    def __str__(self):
+        return self.name
 
 class Specialty(models.Model):
     LEVELS_TYPE = (
@@ -40,7 +50,7 @@ class Specialty(models.Model):
         ('na', 'Nacional'),
         ('in', 'Internacional'),
     )
-    name = models.CharField(verbose_name="Nombre especialidad", max_length=100)
+    degree = models.ForeignKey(Degree, verbose_name="Nombre especialidad", on_delete=models.DO_NOTHING, null=True)
     education_center = models.CharField(verbose_name="Unidad educativa", max_length=100)
     number = models.CharField(verbose_name="Número de registro", max_length=20)
     level_type = models.CharField(verbose_name="Nivel", max_length=100, choices=LEVELS_TYPE)
@@ -54,7 +64,7 @@ class Specialty(models.Model):
         verbose_name_plural = "Especialidades"
 
     def __str__(self):
-        return self.name
+        return self.degree.name
 
 
 class Course(models.Model):
