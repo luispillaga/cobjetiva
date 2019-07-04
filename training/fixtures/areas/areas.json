@@ -1,0 +1,102 @@
+[
+{
+    "model": "training.area",
+    "pk": 1,
+    "fields": {
+        "name": "Seguridad Informatica",
+        "description": "es una disciplina que se encarga de proteger la integridad y la privacidad de la informaci\u00f3n almacenada en un sistema inform\u00e1tico. De todas formas, no existe ninguna t\u00e9cnica que permita asegurar la inviolabilidad de un sistema.",
+        "created_at": "2019-07-03T17:45:01.757Z",
+        "updated_at": "2019-07-04T02:41:22.260Z"
+    }
+},
+{
+    "model": "training.area",
+    "pk": 2,
+    "fields": {
+        "name": "Base de datos",
+        "description": "es una colecci\u00f3n de informaci\u00f3n organizada de forma que un programa de ordenador pueda seleccionar r\u00e1pidamente los fragmentos de datos que necesite. Una base de datos es un sistema de archivos electr\u00f3nico. Las bases de datos tradicionales se organizan por campos, registros y archivos.",
+        "created_at": "2019-07-04T02:40:40.941Z",
+        "updated_at": "2019-07-04T02:40:40.941Z"
+    }
+},
+{
+    "model": "training.area",
+    "pk": 3,
+    "fields": {
+        "name": "Domotica",
+        "description": "es el conjunto de tecnolog\u00edas aplicadas al control y la automatizaci\u00f3n inteligente de la vivienda, que permite una gesti\u00f3n eficiente del uso de la energ\u00eda, que aporta seguridad y confort, adem\u00e1s de comunicaci\u00f3n entre el usuario y el sistema.",
+        "created_at": "2019-07-04T02:44:23.467Z",
+        "updated_at": "2019-07-04T02:44:23.467Z"
+    }
+},
+{
+    "model": "training.area",
+    "pk": 4,
+    "fields": {
+        "name": "Metodologia",
+        "description": "Su objetivo principal es exponer un conjunto de t\u00e9cnicas cl\u00e1sicas y modernas de modelado de sistemas que hagan posible desarrollar un software de calidad, incluyendo heur\u00edsticas de construcci\u00f3n y criterios de comparaci\u00f3n de modelos de sistema.",
+        "created_at": "2019-07-04T02:45:42.679Z",
+        "updated_at": "2019-07-04T02:45:42.679Z"
+    }
+},
+{
+    "model": "training.area",
+    "pk": 5,
+    "fields": {
+        "name": "Inteligencia Artificial (IA)",
+        "description": "es el campo cient\u00edfico de la inform\u00e1tica que se centra en la creaci\u00f3n de programas y mecanismos que pueden mostrar comportamientos considerados inteligentes. En otras palabras, la IA es el concepto seg\u00fan el cual \u201clas m\u00e1quinas piensan como seres humanos\u201d.",
+        "created_at": "2019-07-04T08:09:41.356Z",
+        "updated_at": "2019-07-04T08:09:41.356Z"
+    }
+},
+{
+    "model": "training.area",
+    "pk": 6,
+    "fields": {
+        "name": "Pruebas de Calidad SW",
+        "description": "son los procesos que permiten verificar y revelar la calidad de un producto software. Son utilizadas para identificar posibles fallos de implementaci\u00f3n, calidad, o usabilidad de un programa de ordenador o videojuego. B\u00e1sicamente es una fase en el desarrollo de software consistente en probar las aplicaciones construidas.",
+        "created_at": "2019-07-04T08:11:41.142Z",
+        "updated_at": "2019-07-04T08:11:41.142Z"
+    }
+},
+{
+    "model": "training.area",
+    "pk": 7,
+    "fields": {
+        "name": "Estimacion de Costos",
+        "description": "consiste en realizar una aproximaci\u00f3n de los recursos monetarios necesarios para completar las actividades del proyecto. La exactitud de la estimaci\u00f3n del costo de un proyecto, aumenta seg\u00fan avanza el proyecto, de manera que es un proceso iterativo.",
+        "created_at": "2019-07-04T08:13:03.525Z",
+        "updated_at": "2019-07-04T08:13:03.525Z"
+    }
+},
+{
+    "model": "training.area",
+    "pk": 8,
+    "fields": {
+        "name": "Dise\u00f1o de Interfaz",
+        "description": "es el resultado de definir la forma, funci\u00f3n, usabilidad, ergonom\u00eda, imagen de marca y otros aspectos que afectan a la apariencia externa de las interfaces de usuario en sistemas de todo tipo (computadoras de uso general, sistemas de control, dispositivos de comunicaci\u00f3n m\u00f3viles, software de sistemas, software de aplicaciones, sitios web, etc).",
+        "created_at": "2019-07-04T08:14:23.592Z",
+        "updated_at": "2019-07-04T08:14:23.592Z"
+    }
+},
+{
+    "model": "training.area",
+    "pk": 9,
+    "fields": {
+        "name": "Machin learning",
+        "description": "es una disciplina cient\u00edfica del \u00e1mbito de la Inteligencia Artificial que crea sistemas que aprenden autom\u00e1ticamente. Aprender en este contexto quiere decir identificar patrones complejos en millones de datos.",
+        "created_at": "2019-07-04T08:15:10.425Z",
+        "updated_at": "2019-07-04T08:15:10.425Z"
+    }
+},
+{
+    "model": "training.area",
+    "pk": 10,
+    "fields": {
+        "name": "Plataforma de Desarrollo",
+        "description": "es el ambiente o entorno de software com\u00fan en el cual se desenvuelve la programaci\u00f3n de un grupo definido de aplicaciones. Com\u00fanmente se encuentra relacionada directamente a un sistema operativo; sin embargo, tambi\u00e9n es posible encontrarla ligada a una familia de lenguajes de programaci\u00f3n o a una interfaz de programaci\u00f3n de aplicaciones (API, por las siglas en ingl\u00e9s: Application Programming Interface). Cabe recordar que funciona como sistema plataforma o multiusuario.",
+        "created_at": "2019-07-04T08:17:15.280Z",
+        "updated_at": "2019-07-04T08:17:15.280Z"
+    }
+}
+]

@@ -5,8 +5,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView
 
-from core.forms import UserEditForm, ProfessorEditForm, SpecialtyCreateForm
-from training.models import Specialty
+from core.forms import UserEditForm, ProfessorEditForm, SpecialtyCreateForm, AreaCreateForm
+from training.models import Specialty, Area, Inscription
 
 
 @login_required
@@ -35,7 +35,7 @@ def home(request):
 
 class SpecialtyList(ListView):
     model = Specialty
-    template_name = 'specialty/specialty_list.html'
+    template_name = 'core/specialty/specialty_list.html'
     context_object_name = 'specialties'
 
     def get_queryset(self):
@@ -45,7 +45,7 @@ class SpecialtyList(ListView):
 
 class SpecialtyCreate(CreateView):
     model = Specialty
-    template_name = "specialty/specialty_form.html"
+    template_name = "core/specialty/specialty_form.html"
     form_class = SpecialtyCreateForm
     success_url = reverse_lazy('specialty_list')
 
@@ -67,7 +67,7 @@ class SpecialtyCreate(CreateView):
 class SpecialtyUpdate(UpdateView):
     model = Specialty
     form_class = SpecialtyCreateForm
-    template_name = "specialty/specialty_form.html"
+    template_name = "core/specialty/specialty_form.html"
     success_url = reverse_lazy('specialty_list')
 
 
@@ -76,3 +76,61 @@ def specialty_delete(request, id):
     specialty.delete()
     messages.success(request, 'La especialidad ha sido eliminada.')
     return redirect('specialty_list')
+
+
+# Controladores de Areas
+class AreaList(ListView):
+    model = Area
+    template_name = 'core/area/area_list.html'
+    context_object_name = 'areas'
+
+    def get_queryset(self):
+        professor_list = [self.request.user.professor]
+        return Area.objects.filter(professors__in=professor_list)
+
+
+class AreaCreate(CreateView):
+    model = Area
+    template_name = "core/area/area_form.html"
+    form_class = AreaCreateForm
+    success_url = reverse_lazy('area_list')
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.object = self.get_object
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            area = form.save()
+            professor = request.user.professor
+            professor.areas.add(area)
+            professor.save()
+            return HttpResponseRedirect(self.get_success_url())
+
+
+class AreaUpdate(UpdateView):
+    model = Area
+    form_class = AreaCreateForm
+    template_name = "core/area/area_form.html"
+    success_url = reverse_lazy('area_list')
+
+
+def area_delete(request, id):
+    area = get_object_or_404(Area, pk=id)
+    area.delete()
+    messages.success(request, 'El área ha sido eliminada.')
+    return redirect('area_list')
+
+
+# Controladores de Inscripción
+class InscriptionList(ListView):
+    model = Inscription
+    template_name = 'core/inscription/inscription_list.html'
+    context_object_name = 'inscriptions'
+
+    def get_queryset(self):
+        professor = self.request.user.professor
+        inscriptions = Inscription.objects.filter(professor=professor)
+        return inscriptions

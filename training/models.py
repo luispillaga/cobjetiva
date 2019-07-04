@@ -41,6 +41,7 @@ class Degree(models.Model):
     def __str__(self):
         return self.name
 
+
 class Specialty(models.Model):
     LEVELS_TYPE = (
         ('third', 'Tercer Nivel'),
@@ -50,7 +51,7 @@ class Specialty(models.Model):
         ('na', 'Nacional'),
         ('in', 'Internacional'),
     )
-    degree = models.ForeignKey(Degree, verbose_name="Nombre especialidad", on_delete=models.DO_NOTHING, null=True)
+    degree = models.ForeignKey(Degree, verbose_name="Título", on_delete=models.DO_NOTHING, null=True)
     education_center = models.CharField(verbose_name="Unidad educativa", max_length=100)
     number = models.CharField(verbose_name="Número de registro", max_length=20)
     level_type = models.CharField(verbose_name="Nivel", max_length=100, choices=LEVELS_TYPE)
@@ -80,7 +81,7 @@ class Course(models.Model):
     place = models.CharField(verbose_name="Lugar", max_length=50)
     start_date = models.DateField(verbose_name="Fecha inicio", default=now)
     end_date = models.DateField(verbose_name="Fecha finalización", default=now)
-    state = models.CharField(verbose_name="Estado capacitación", max_length=10, choices=COURSE_STATE, default='inscriptions')
+    state = models.CharField(verbose_name="Estado capacitación", max_length=15, choices=COURSE_STATE, default='inscriptions')
     created_at = models.DateTimeField(verbose_name="Fecha de creación", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="Fecha de actualiación", auto_now=True)
 

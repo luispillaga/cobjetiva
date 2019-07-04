@@ -17,11 +17,23 @@ class CustomUserAdmin(UserAdmin):
         }),
     )
 
+
 admin.site.register(CustomUser, CustomUserAdmin)
 
 
 class ProfessorAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('docente','especialidades', 'state')
+    list_editable = ('state',)
+    date_hierarchy = 'created_at'
+    readonly_fields = ('specialities', 'areas')
+    list_filter = ('specialities__degree__name',)
+
+    def especialidades(self, obj):
+        return ",".join([e.degree.name for e in obj.specialities.all()]) #Hay que arreglar
+
+
+    def docente(self, obj):
+        return obj.user.get_full_name()
 
 
 admin.site.register(Professor, ProfessorAdmin)

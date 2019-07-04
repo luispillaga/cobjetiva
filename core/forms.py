@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 
-from training.models import Specialty
+from training.models import Specialty, Area
 from users.models import Professor
 
 
@@ -39,9 +39,20 @@ class SpecialtyCreateForm(forms.ModelForm):
             'number': forms.TextInput(attrs={'class':'form-control form-control-alternative'}),
             'level_type': forms.Select(attrs={'class':'form-control form-control-alternative'}),
             'degree_type': forms.Select(attrs={'class':'form-control form-control-alternative'}),
-            'emission_date': forms.SelectDateWidget(attrs={'class':'form-control form-control-alternative'}),
+            'emission_date': forms.DateInput(attrs={'class':'form-control form-control-alternative'}),
         }
 
     def __init__(self, *args, **kwargs):
         super(SpecialtyCreateForm, self).__init__(*args, **kwargs)
         self.fields['degree'].empty_label = "Seleccione un título"
+
+
+# Formularios del Area
+class AreaCreateForm(forms.ModelForm):
+    class Meta:
+        model = Area
+        fields = ('name', 'description')
+        widgets = {
+            'name': forms.TextInput(attrs={'class':'form-control form-control-alternative'}),
+            'description': forms.Textarea(attrs={'class':'form-control form-control-alternative'}),
+        }

@@ -83,19 +83,19 @@
             </a>
           </li>
             <li class="nav-item">
-                <a class="nav-link {% if request.path == '/mydegrees' %}active{% endif %}" href="{% url 'specialty_list' %}">
+                <a class="nav-link {% if request.path|slice:"11" == '/mydegrees/' %}active{% endif %}" href="{% url 'specialty_list' %}">
                     <i class="ni ni-bag-17 text-primary"></i> Mis títulos
                 </a>
             </li>
             <li class="nav-item">
-{#                <a class="nav-link {% if request.path|slice:"13" == '/loan/list/' %}active{% endif %}" href="{% url 'loan_list' %}">#}
-{#                    <i class="ni ni-bag-17 text-primary"></i> Áreas de preferencia#}
-{#                </a>#}
+                <a class="nav-link {% if request.path|slice:"10" == '/myareas/' %}active{% endif %}" href="{% url 'area_list' %}">
+                    <i class="ni ni-bag-17 text-primary"></i> Áreas de preferencia
+                </a>
             </li>
             <li class="nav-item">
-{#                <a class="nav-link {% if request.path|slice:"13" == '/loan/list/' %}active{% endif %}" href="{% url 'loan_list' %}">#}
-{#                    <i class="ni ni-bag-17 text-primary"></i> Capacitaciones asignadas#}
-{#                </a>#}
+                <a class="nav-link {% if request.path == '/inscriptions/' %}active{% endif %}" href="{% url 'inscription_list' %}">
+                    <i class="ni ni-bag-17 text-primary"></i> Capacitaciones asignadas
+                </a>
             </li>
         </ul>
         <!-- Divider -->
