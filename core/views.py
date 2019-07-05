@@ -1,11 +1,11 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView
 
-from core.forms import UserEditForm, ProfessorEditForm, SpecialtyCreateForm, AreaCreateForm
+from core.forms import UserEditForm, ProfessorEditForm, SpecialtyCreateForm, AreaCreateForm, AreaForm
 from training.models import Specialty, Area, Inscription
 
 
@@ -89,6 +89,37 @@ class AreaList(ListView):
         return Area.objects.filter(professors__in=professor_list)
 
 
+def area_assigment(request):
+    if request.method == 'POST':
+        form = AreaForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            area = cd['area']
+            professor = request.user.professor
+            professor.areas.add(area)
+            professor.save()
+            return redirect('/myareas/')
+
+    else:
+        form = AreaForm()
+    return render(request, 'core/area/area_assigment.html', {'form': form})
+
+
+def get_description(request):
+    try:
+        id = request.GET.get('id', None)
+        area = Area.objects.get(pk=id)
+        description = area.description
+        data = {
+            'description': description
+        }
+    except Exception:
+        data = {
+            'description': ""
+        }
+    return JsonResponse(data)
+
+
 class AreaCreate(CreateView):
     model = Area
     template_name = "core/area/area_form.html"
@@ -118,8 +149,9 @@ class AreaUpdate(UpdateView):
 
 
 def area_delete(request, id):
+    professor = request.user.professor
     area = get_object_or_404(Area, pk=id)
-    area.delete()
+    professor.areas.remove(area)
     messages.success(request, 'El área ha sido eliminada.')
     return redirect('area_list')
 

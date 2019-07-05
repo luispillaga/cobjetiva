@@ -56,3 +56,12 @@ class AreaCreateForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class':'form-control form-control-alternative'}),
             'description': forms.Textarea(attrs={'class':'form-control form-control-alternative'}),
         }
+
+
+class AreaForm(forms.Form):
+    area = forms.ModelChoiceField(queryset=Area.objects.all(),
+                                  widget=forms.Select(
+                                      attrs={'class':'form-control form-control-alternative',
+                                             'onchange': 'captureSelectChange()'}))
+    description = forms.CharField(widget=forms.Textarea(attrs={
+        'class':'form-control form-control-alternative'}))

@@ -40,6 +40,7 @@ def register(request):
             new_user.set_password(
                 user_form.cleaned_data['password']
             )
+            new_user.user_type = 'D'
             new_user.save()
             Professor.objects.create(user=new_user)
             return render(request, 'users/register_done.html',

@@ -14,6 +14,8 @@ urlpatterns = [
     path('update-area/<int:pk>', views.AreaUpdate.as_view(), name='area_update'),
     path('delete-area/<int:id>', views.area_delete, name="area_delete"),
     path('inscriptions/', views.InscriptionList.as_view(), name="inscription_list"),
+    path('assign-area/', views.area_assigment, name="area_assigment"),
+    path('ajax/get-description/', views.get_description, name="get_description"),
 
     # path('list/<int:id>/', views.InvoiceList.as_view(), name='invoice_list'),
     # path('detail/<int:invoice_id>/', views.InvoiceDetail.as_view(), name='invoice_detail'),
